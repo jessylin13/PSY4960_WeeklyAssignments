@@ -23,7 +23,7 @@ bottom right: Everything else (This has everything else that you need)
 The difference between an "and" and an "or" statement is that that and "and" statement is used when both things need to be true, and an "or" statement is used when only one has to be true.
 #√
 6. Create an "and" statement for the following sentence: three is less than five and tree is the same as oak. 
-```{r}
+```{r} 
 3<5 & "tree"=="oak"
 ```
 #√
