@@ -1,28 +1,65 @@
----
-title: "Quiz 4"
-author: "Amanda Mae Woodward"
-date: "2022-11-08"
+--
+title: 'Quiz #4'
+author: "Jessy Lin"
+date: "2022-11-09"
 output: html_document
 ---
-
 1. open the mtcars dataset.
+```{r}
+data("mtcars")
+```
 
 2. Find the correlation between mpg and hp.
+```{r}
+cor(mtcars$mpg,mtcars$hp)
+```
 
 3. Create a scatterplot that matches your statistic in #2. 
+```{r}
+ggplot(mtcars, aes(mpg,hp)) +geom_point()
+```
 
 4. Find the correlation between am and mpg. Explain why you chose to use your specific function
+```{r}
+cor(mtcars$am,mtcars$mpg)
+#I used this specific function because it tells you the strengthand direction of the relationship between am and mpg.
+```
 
 5. Run a regression to predict mpg from disp.
+```{r}
+lm(mpg~disp, mtcars)
+```
 
 6. Create a graph that displays your regression line. 
+```{r}
+ggplot(mtcars, aes(mpg,disp)) +geom_point() + geom_smooth(method = "lm")
+```
 
 7. Run a t test to compare the horse power of automatic and manual transmission cars. 
+```{r}
+t.test(mtcars$hp ~ mtcars$am)
+```
 
 8. Create a graph that accompanies your statistic in #6.
+```{r}
+q8<-lm(mpg~disp, mtcars)
+plot(q8)
+```
 
 9. Run an ANOVA to predict disp from gear. 
+```{r}
+lm(disp~gear, mtcars)
+q9<-lm(disp~gear, mtcars)
+Anova(q9)
+```
 
 10. You have a multiple choice test that is 25 questions with 5 potential options. What type of test can you run to determine if your score of 16/25 differs from chance? 
+```{r}
+#The test that you can run is a binomial test because it determines if something happens more often than chance.
+```
 
 11. Run the test you described in #10
+```{r}
+binom.test(16,25, p=0.25)
+```
+
