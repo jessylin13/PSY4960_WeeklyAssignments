@@ -1,24 +1,57 @@
 ---
-title: "Weekly Assignment 10"
-author: "Amanda Mae Woodward"
-date: "2022-11-08"
+title: "Weekly 10 Assignment"
+author: "Jessy Lin"
+date: "2022-11-09"
 output: html_document
 ---
-
 1. Open the diamonds dataset from ggplot2.   
+```{r}
+library(ggplot2)
+data(diamonds)
+```
 
 2. Run a correlation between the x and y variables. What do you notice? 
+```{r}
+cor(diamonds$x,diamonds$y)
+#I noticed that the code spit out a number that is a random correlation between the x and y variable because I did not specify what x and what y is yet
+```
 
 3. What is the correlation between price and carat?
+```{r}
+cor(diamonds$price,diamonds$carat)
+#The correlation between price and carot is 0.92
+```
 
 4. Create a linear model predicting price from table. What is the coefficient for table? 
+```{r}
+lm(price~table, diamonds)
+#The coefficient for table is 227
+```
 
 5. Run a regression and an Anova predicting price from color. What do you notice about the two types of output? 
+```{r}
+lm(price~color, diamonds)
+q5<-lm(price~color, diamonds)
+Anova(q5)
+#The regression shows you the coefficient output which determines the relationship between the diamonds dataset variables and in our case its between the color and price. The ANOVA model provides you the evidence of the existence of the mean equality between the groups and again in our case its between the price and color
+```
 
 6. Run a t test to determine if "D" color diamonds are more expensive than "E" color diamonds. 
+```{r}
+diamonds$color2<-as.numeric(diamonds$color)
+diamonds2<-data_frame(diamonds$color2, diamonds$price)
+```
 
 7. Open the warpbreaks dataset. What test would you use to determine the correlation between wool type and breaks?
+```{r}
+data("warpbreaks")
+#The test I would use to determine the correlation between wool type and breaks is the correlation code but only after I change the wool type from a factor to a numeric value
+```
 
 8. What is the correlation between wool type and breaks? 
-
-9. A student has a 35 question, multiple choice test. Each question has 4 choices. If they answered 17 questions correctly, did their responses differ from chance?  
+```{r}
+warpbreaks$wool2<- ifelse(warpbreaks$wool=="A", "0","1")
+warpbreaks$wool2<- as.numeric(warpbreaks$wool2)
+cor(warpbreaks$wool2,warpbreaks$breaks)
+#The correlation between wool type and breaks is -0.22
+```
