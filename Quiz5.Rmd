@@ -1,9 +1,4 @@
----
-title: "PSY4960- Quiz 5"
-author: "Amanda Mae Woodward"
-date: "2022-11-21"
-output: html_document
----
+
 ---
 title: 'Quiz #5'
 author: "Jessy Lin"
@@ -17,6 +12,7 @@ For this assignment, you should fix the code below. Knit a copy and submit the k
 ```{r}
 ggplot(mtcars, aes(hp, disp))+ geom_point() +theme_classic()
 ```
+#need ggplot2 library
 
 ## Problem 2
 A student is trying to make a graph that shows a regression line for weight predicted by miles per gallon with this code: 
@@ -33,6 +29,7 @@ data("diamonds")
 diamondsDE<-diamonds %>% filter(color== "D","E")
 
 ```
+#need to use or statement
 
 ## Problem 4
 
@@ -46,6 +43,7 @@ scientistDat<- cbind.data.frame(time,light1,light2)
 ggplot(scientistDat, aes(light2,time)) + geom_bar() + theme_bw()
 
 ```
+#can't make a bar graph with two variables
 
 ## Problem 5
 ```{r}
@@ -63,6 +61,7 @@ ggplot(mtcars, aes(hp, disp))+ geom_point()
 ```{r}
 cwwide <- pivot_wider(ChickWeight, id_cols = c("chick", "diet"), names_from = "time", values_from = "weight")
 ```
+#need to change capitalization 
 
 ## Problem 8
 
@@ -117,7 +116,7 @@ for(i in 1:nrow(USArrests)){
 summary(diamonds$cut)
 recode_factor(diamonds$cut,"Fair"=1, "Good"=2, "Very Good"= 3)
 ```
-
+#needs recode command 
 ## Problem 15
 
 4. Open the starwars dataset. Run a summary function on those that are apart of the tatooine planet. Those from Tatooine, find how many characters have a birth year of exactly or over 50. Figure out how the fix the error(s): 
@@ -128,7 +127,8 @@ summary(Tatooine)
 TatOver50 <- Tatooine %>% select(birth_year<=50)
 prow(TatOver50)
 ```
-
+#what's p row? 
+#filter would be a better choice 
 ## Problem 16
 
 ```{r}
@@ -136,12 +136,15 @@ cut_data<- cor(diamonds$cut, diamonds$price)
 biserial.cor(cut_data$color, cut_data$price)
 
 ```
+#can't use biserial here 
 
 first, you must set your seed to the same one I do.
 
 ```{r}
 set.seed()
 ```
+
+#missing seed argument
 
 Now that we have the same seed, we need the data to sample from
 
@@ -167,7 +170,7 @@ meanSdDev<- function(num1,num2){mean(num1)/sd(num2)}
 Chickweight %>% select(chickweight,weight=50)
 
 ```
-
+#need to capitalize chickweight dataset. need to use == not = 
 ## Problem 20 
 ```{r}
 data("billboard")
@@ -175,7 +178,7 @@ billboardLong <- pivot_wider(billboard, cols = c(colnames(billboard[4:75])), nam
 britney <- billboardLong %>% filter(artist == "Spears Britney") %>% na.omit(rankings)
 nrow(britney$rankings)
 ```
-
+#not fixed 
 ## Problem 21
 Create a boxplot for price for the different carats
 ```{r}
