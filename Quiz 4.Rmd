@@ -18,7 +18,7 @@ cor(mtcars$mpg,mtcars$hp)
 ```{r}
 ggplot(mtcars, aes(mpg,hp)) +geom_point()
 ```
-
+#need ggplot2 library
 4. Find the correlation between am and mpg. Explain why you chose to use your specific function
 ```{r}
 cor(mtcars$am,mtcars$mpg)
@@ -62,4 +62,4 @@ Anova(q9)
 ```{r}
 binom.test(16,25, p=0.25)
 ```
-
+#should be .2 
