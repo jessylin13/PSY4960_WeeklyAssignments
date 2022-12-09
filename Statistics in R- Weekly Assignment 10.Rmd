@@ -41,6 +41,7 @@ Anova(q5)
 diamonds$color2<-as.numeric(diamonds$color)
 diamonds2<-data_frame(diamonds$color2, diamonds$price)
 ```
+#need to subset so you only have D and E diamonds
 
 7. Open the warpbreaks dataset. What test would you use to determine the correlation between wool type and breaks?
 ```{r}
@@ -55,3 +56,4 @@ warpbreaks$wool2<- as.numeric(warpbreaks$wool2)
 cor(warpbreaks$wool2,warpbreaks$breaks)
 #The correlation between wool type and breaks is -0.22
 ```
+#missing the last question about binomial tests
