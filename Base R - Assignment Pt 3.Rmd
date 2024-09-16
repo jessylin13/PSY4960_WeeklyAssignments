@@ -12,3 +12,57 @@ output: html_document
 5. Use a for loop to determine if a song placed 50 or below or placed above 50 during the first week. 
 6. Use an if else statement to determine the same information as you obtained with the for loop. 
 7. Compare your results. 
+
+## Creating Functions
+1. Create a function that can be used to determine if Britney Spears sang the song. 
+```{r}
+britneySang<- function(song)
+{c("did britney sing",song)}
+
+britneySang("toxic")
+```
+
+favorite("french fries")
+2. Test your function on the billboard data. Save the results to a new column called "wasItBritney"
+```{r}
+britneySang(billboard$track)
+
+billboard$wasItBritney<- NA
+for (i in 1:nrow(billboard)){
+  if(billboard$artist[i]<="britney spears"){
+ billboard$wasItBritney[i]<- "yes"
+  }  
+  else{billboard$wasItBritney[i]<- "no"}}
+```
+
+## 
+1. Open the tidyverse library.
+```{r}
+library(tidyverse)
+```
+
+2. open the billboard dataset
+```{r}
+data("billboard")
+```
+
+## For loops
+
+1. Use a for loop to determine if a song placed 50 or below or placed above 50 during the first week. 
+```{r}
+billboard$songPlacement<- NA
+for(i in 1:nrow(billboard)){
+  if(billboard$wk1[i]<=50){
+    billboard$songPlacement[i]<- "below"
+  }
+  else{billboard$songPlacement[i]<-"above"}}
+```
+
+2. Use an if else statement to determine the same information as you obtained with the for loop. 
+```{r}
+ifelse(billboard$wk1<=50, "below", "above")
+```
+
+3. Compare your results.
+They have the same values when dtermining if a song is place 50 or below or placed above 50 during the first week 
+
